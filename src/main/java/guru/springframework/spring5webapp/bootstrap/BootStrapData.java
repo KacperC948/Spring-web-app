@@ -34,6 +34,7 @@ public class BootStrapData implements CommandLineRunner {
         Book ksiazkaKacpra = new Book("Jakas książka", "1234444");
         kacper.getBooks().add(ksiazkaKacpra);
         ksiazkaKacpra.getAuthors().add(kacper);
+        ksiazkaKacpra.setPublisher(publisher1);
 
         authorRepository.save(kacper);
         bookRepository.save(ksiazkaKacpra);
@@ -43,9 +44,11 @@ public class BootStrapData implements CommandLineRunner {
         Book ksiazkaMartyny = new Book("Jakas ksiazka Martyny", "123123");
         martyna.getBooks().add(ksiazkaMartyny);
         ksiazkaMartyny.getAuthors().add(martyna);
+        ksiazkaMartyny.setPublisher(publisher1);
 
         authorRepository.save(martyna);
         bookRepository.save(ksiazkaMartyny);
+        publisherRepository.save(publisher1);
 
         System.out.println("Started in BootStrapdata class");
         System.out.println("Number of books: " + bookRepository.count());
